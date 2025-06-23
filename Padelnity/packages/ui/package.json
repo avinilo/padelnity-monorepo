@@ -11,8 +11,8 @@
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@turbo/gen": "^2.5.0",
     "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
@@ -21,9 +21,7 @@
     "typescript": "5.8.2"
   },
   "dependencies": {
-    "clsx": "^2.1.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "tailwind-merge": "^2.6.0"
+    "react-dom": "^19.1.0"
   }
 }

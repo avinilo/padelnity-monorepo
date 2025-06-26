@@ -1,13 +1,4 @@
 {
-  "name": "padel-monorepo",
-  "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
-  "installCommand": "cd ../.. && npm install",
-  "buildCommand": "cd ../.. && npm run build --filter=next-app",
-  "outputDirectory": ".next"
+  "installCommand": "cd ../.. && npm install --legacy-peer-deps",
+  "buildCommand": "cd ../.. && npm run build --filter=next-app"
 } 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { supabase } from '@/lib/supabase'
+import { createClient } from '@/lib/supabase/client'
 import { getOnboardingStatus } from '@/lib/onboarding'
 
 interface OnboardingStatus {
@@ -16,6 +16,8 @@ export function useOnboarding() {
     loading: true,
     error: null
   })
+
+  const supabase = createClient()
 
   const checkOnboardingStatus = async () => {
     try {
@@ -65,7 +67,7 @@ export function useOnboarding() {
   // Suscribirse a cambios de autenticación
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
+      (event: string, session: any) => {
         if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
           checkOnboardingStatus()
         } else if (event === 'SIGNED_OUT') {
@@ -80,7 +82,7 @@ export function useOnboarding() {
     )
 
     return () => subscription.unsubscribe()
-  }, [])
+  }, [supabase])
 
   return {
     ...status,

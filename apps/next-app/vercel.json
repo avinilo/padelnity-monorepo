@@ -4,6 +4,5 @@
   "buildCommand": "turbo run build --filter=next-app",
   "outputDirectory": "apps/next-app/.next",
   "installCommand": "npm install",
-  "framework": "nextjs",
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./"
+  "framework": "nextjs"
 } 
